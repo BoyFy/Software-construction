@@ -20,30 +20,41 @@ public class Exercise_1_0 {
 			if(set.size()!=i+1) {
 				i--;
 			}
-		}	
-	}	
+		}
+		set.clear();//释放set集合元素
+	}
 	//生成加法算式
 	public void generateAddExercise() {
 		BinaryOperation_1_0 anOperation,opCreator=new BinaryOperation_1_0();
 		for (int i = 0; i < Formula.length; i++) {
-			anOperation=opCreator.generateBinaryOperation();
+			anOperation=opCreator.generateAddOperation();
 			Formula[i]=anOperation;
 			set.add(Formula[i]);
 			if(set.size()!=i+1) {
 				i--;
 			}
-		}	
+		}
+		set.clear();
 	}
 	//生成减法算式
 	public void generateSubExercise() {
 		BinaryOperation_1_0 anOperation,opCreator=new BinaryOperation_1_0();
 		for (int i = 0; i < Formula.length; i++) {
-			anOperation=opCreator.generateBinaryOperation();
+			anOperation=opCreator.generateSubOperation();
 			Formula[i]=anOperation;
 			set.add(Formula[i]);
 			if(set.size()!=i+1) {
 				i--;
 			}
 		}	
+		set.clear();
+	}
+	void formateAndDisplay() {
+		for (int i = 0; i < Formula.length; i++) {
+			System.out.print(Formula[i]+"\t");
+			if((i+1)%6==0) {
+				System.out.println();
+			}
+		}
 	}
 }
