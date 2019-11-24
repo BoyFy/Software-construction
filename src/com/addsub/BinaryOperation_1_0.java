@@ -63,15 +63,15 @@ public class BinaryOperation_1_0 {
 	//生成混合算式
 	public BinaryOperation_1_0 generateBinaryOperation() {
 		Random random=new Random();	
-		BinaryOperation_1_0 op=new BinaryOperation_1_0();
+		BinaryOperation_1_0 anOperation,opCreater=new BinaryOperation_1_0();
 		flag=random.nextInt(down+2);
 		//flag为1时调用取加法的方法，否则调用取减法的方法
 		if(flag==1) {
-			op.generateAddOperation();
+			anOperation=opCreater.generateAddOperation();
 		}else {
-			op.generateSubOperation();
+			anOperation=opCreater.generateSubOperation();
 		}
-		return op;
+		return anOperation;
 	}
 	//返回值
 	public String toString() {
