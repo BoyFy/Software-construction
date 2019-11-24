@@ -37,9 +37,12 @@ public class BinaryOperation_1_0 {
 	//生成加法算式
 	public BinaryOperation_1_0 generateAddOperation() {
 		Random random=new Random();
-		int left,right;
+		int left,right,value;
 		left=random.nextInt(up+1);//left左边的数取100以内的随机数
-		right=random.nextInt(up-left);//right右边的数取101减去left左边的数后以内的数，这样保证两数相加小于100
+		do {
+			right=random.nextInt(up+1);//使用do...while语句对相加之和进行判断
+			value=left+right;
+		}while(value>100);
 		BinaryOperation_1_0 op=new BinaryOperation_1_0();
 		op.construct(left, right, 1);
 		return op;
@@ -47,9 +50,12 @@ public class BinaryOperation_1_0 {
 	//生成减法算式
 	public BinaryOperation_1_0 generateSubOperation() {
 		Random random=new Random();
-		int left,right;
+		int left,right,value;
 		left=random.nextInt(up+1);
-		right=random.nextInt(left);//同加法原理，保证右边的数小于左边的数就可以让两数相减大于0
+		do {
+			right=random.nextInt(up+1);
+			value=left-right;
+		}while(value<0);
 		BinaryOperation_1_0 op=new BinaryOperation_1_0();
 		op.construct(left, right, 0);
 		return op;
