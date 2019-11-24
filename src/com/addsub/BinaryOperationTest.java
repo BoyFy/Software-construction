@@ -1,6 +1,6 @@
 package com.addsub;
 
-public class Test {
+public class BinaryOperationTest {
 
 	public static void main(String[] args) {
 		BinaryOperation_1_1 aop;
