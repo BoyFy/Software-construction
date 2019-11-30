@@ -49,7 +49,7 @@ public class Exercise_1_0 {
 		}	
 		set.clear();
 	}
-	void formateAndDisplay() {
+	public void formateAndDisplay() {
 		for (int i = 0; i < Formula.length; i++) {
 			System.out.print(Formula[i]+"\t");
 			if((i+1)%6==0) {

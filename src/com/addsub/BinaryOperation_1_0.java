@@ -22,17 +22,31 @@ public class BinaryOperation_1_0 {
 		return result;
 	}
 	//对加减法进行计算
-	private void construct(int left,int right,int fg) {
+	public void construct(int left,int right,int fg) {
 		left_operand=left;
 		right_operand=right;
 		flag=fg;
+		if (!(0 <= left && left <= 100)){
+    		throw new RuntimeException("左运算数不在0~100的范围");
+    	}
+		if (!(0 <= right && right <= 100)){
+    		throw new RuntimeException("右运算数不在0~100的范围");
+    	}
 		if(flag==1) {
 			operator='+';
 			result=left+right;
-		}else {
+			if (!(0 <= result && result <= 100)){
+    			throw new RuntimeException("加法运算结果不在0~100的范围");
+    		}
+		}else if(flag==0){
 			operator='-';
 			result=left-right;
-		}
+			if (!(0 <= result && result <= 100)){
+    			throw new RuntimeException("减法运算结果不在0~100的范围");
+    		}
+		}else {
+			throw new RuntimeException(fg+"是判断符号的数字0与1以外的数！");   		
+    	} 
 	}
 	//生成加法算式
 	public BinaryOperation_1_0 generateAddOperation() {
