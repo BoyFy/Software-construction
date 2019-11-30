@@ -22,8 +22,8 @@ public abstract class BinaryOperation_1_1 {
 		return result;
 	}
 	//两个抽象方法，生成结果与检查输入正确性
-	abstract int calculate(int left,int right);
-	abstract boolean checking(int value);
+	public abstract int calculate(int left,int right);
+	public abstract boolean checking(int value);
 	//fg为1生成加法算式，fg为其他数生成减法算式
 	protected void generateBinaryOperation(int fg) {
 		int left,right,value;
