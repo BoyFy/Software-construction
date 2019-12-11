@@ -5,11 +5,11 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.addsub.BinaryOperation_1_1;
+import com.addsub.BinaryOperation_2_0;
 import com.addsub.SubOperation;
 
 public class SubOperationTest {
-	BinaryOperation_1_1 sop;
+	BinaryOperation_2_0 sop;
 	@Before
 	public void setUp() throws Exception {
 		sop = new SubOperation();

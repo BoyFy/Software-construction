@@ -4,13 +4,13 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import com.addsub.AddOperation;
-import com.addsub.BinaryOperation_1_1;
+import com.addsub.BinaryOperation_2_0;
 import com.addsub.SubOperation;
 
-public class BinaryOperation_1_1Test {
-	BinaryOperation_1_1 aop;
-	BinaryOperation_1_1 sop;
-	Class<BinaryOperation_1_1> cla=BinaryOperation_1_1.class;
+public class BinaryOperation_2_0Test {
+	BinaryOperation_2_0 aop;
+	BinaryOperation_2_0 sop;
+	Class<BinaryOperation_2_0> cla=BinaryOperation_2_0.class;
 	
 	@Before
 	public void setUp() throws Exception {

@@ -6,10 +6,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.addsub.AddOperation;
-import com.addsub.BinaryOperation_1_1;
+import com.addsub.BinaryOperation_2_0;
 
 public class AddOperationTest {
-	BinaryOperation_1_1 aop;
+	BinaryOperation_2_0 aop;
 	@Before
 	public void setUp() throws Exception {
 		aop = new AddOperation();

@@ -1,6 +1,6 @@
 package com.addsub;
 
-public class AddOperation extends BinaryOperation_1_1{
+public class AddOperation extends BinaryOperation_2_0{
 	public AddOperation() {
 		generateBinaryOperation(1);
 	}

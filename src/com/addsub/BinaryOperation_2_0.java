@@ -2,7 +2,7 @@ package com.addsub;
 
 import java.util.Random;
 
-public abstract class BinaryOperation_1_1 {
+public abstract class BinaryOperation_2_0 {
 	static final int up=100;
 	static final int down=0;
 	private char operator='+';
@@ -20,6 +20,24 @@ public abstract class BinaryOperation_1_1 {
 	}
 	public int getResult() {
 		return result;
+	}
+	public void unsafeConstructor(int left,int right,char symble) {
+		left_operand=left;
+		right_operand=right;
+		operator=symble;
+		if (symble=='+') {
+			result=left+right;
+		}else {
+			result=left-right;
+		}
+	}
+	public void unsafeConstructor(String eqString) {
+		int length=eqString.length();
+		int symblepo=eqString.indexOf("+");
+		if(symblepo<=0)
+			symblepo=eqString.indexOf("-");
+		unsafeConstructor(Integer.parseInt(eqString.substring(0,symblepo)),
+				Integer.parseInt(eqString.substring(symblepo+1,length-1)), eqString.charAt(symblepo));
 	}
 	//两个抽象方法，生成结果与检查输入正确性
 	public abstract int calculate(int left,int right);
