@@ -64,13 +64,8 @@ public class Exercise_2_0 {
 		}
 		set.clear();
 	}
-	public void add(BinaryOperation_2_0 anOperation){
-		operationList.add(anOperation);
-	}
-	public void writeCSVAddExercise(int operationCount) {
-		File exerciseFile=new File("C:\\","Add_exercise_"+operationCount+".csv");
+	public void writeCSVAddExercise(int operationCount) {//把生成加法算式写入文件中
 		try {
-			exerciseFile.createNewFile();
 			String pathCSVWrite = "C:\\Add_exercise_"+operationCount+".csv";
 			CsvWriter csvWriter = new CsvWriter(pathCSVWrite,',',Charset.forName("gb2312"));
 			for (int i = 0; i < operationList.size(); i++) {
@@ -83,10 +78,8 @@ public class Exercise_2_0 {
 			e.printStackTrace();
 		}
 	}
-	public void writeCSVSubExercise(int operationCount) {
-		File exerciseFile=new File("C:\\","Sub_exercise_"+operationCount+".csv");
+	public void writeCSVSubExercise(int operationCount) {//把生成减法算式写入文件中
 		try {
-			exerciseFile.createNewFile();
 			String pathCSVWrite = "C:\\Sub_exercise_"+operationCount+".csv";
 			CsvWriter csvWriter = new CsvWriter(pathCSVWrite,',',Charset.forName("gb2312"));
 			for (int i = 0; i < operationList.size(); i++) {
@@ -99,10 +92,8 @@ public class Exercise_2_0 {
 			e.printStackTrace();
 		}
 	}
-	public void writeCSVBinaryExercise(int operationCount) {
-		File exerciseFile=new File("C:\\","Binary_exercise_"+operationCount+".csv");
+	public void writeCSVBinaryExercise(int operationCount) {//把生成混合算式写入文件中
 		try {
-			exerciseFile.createNewFile();
 			String pathCSVWrite = "C:\\Binary_exercise_"+operationCount+".csv";
 			CsvWriter csvWriter = new CsvWriter(pathCSVWrite,',',Charset.forName("gb2312"));
 			for (int i = 0; i < operationList.size(); i++) {
@@ -115,7 +106,8 @@ public class Exercise_2_0 {
 			e.printStackTrace();
 		}
 	}
-	public Exercise_2_0 readCSVExercise(File aFile) {
+	public Exercise_2_0 readCSVExercise(File aFile) {//从之前的写入文件中读取算式
+		operationList.clear();
 		Exercise_2_0 exercise=new Exercise_2_0();
 		String eqString;
 		BinaryOperation_2_0 op;
@@ -126,14 +118,46 @@ public class Exercise_2_0 {
 				eqString=sc.next().replace("\\s", "");
 				op=new AddOperation();
 				op.unsafeConstructor(eqString);
-				exercise.add(op);
+				operationList.add(op);
 			}
 		} catch (IOException e) { 
 			e.printStackTrace();
 		}
 		return exercise;
 	}
-	public void writeCsvResult(File aFile) {
+	public void writeBinaryCsvResult(File aFile) {//把混合运算结果写入文件
+		BinaryOperation_2_0 op;
+		try {
+			aFile.createNewFile();
+			String pathCSVWrite = "C:\\Binary_Result.csv";
+			CsvWriter csvWriter = new CsvWriter(pathCSVWrite,',',Charset.forName("gb2312"));
+			for (int i = 0; i < operationList.size(); i++) {
+				op=operationList.get(i);	
+				csvWriter.write(op.getResult()+"");
+			}
+			csvWriter.flush();
+			csvWriter.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public void writeSubCsvResult(File aFile) {//把减法运算结果写入文件
+		BinaryOperation_2_0 op;
+		try {
+			aFile.createNewFile();
+			String pathCSVWrite = "C:\\Sub_Result.csv";
+			CsvWriter csvWriter = new CsvWriter(pathCSVWrite,',',Charset.forName("gb2312"));
+			for (int i = 0; i < operationList.size(); i++) {
+				op=operationList.get(i);	
+				csvWriter.write(op.getResult()+"");
+			}
+			csvWriter.flush();
+			csvWriter.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public void writeAddCsvResult(File aFile) {//把加法运算结果写入文件
 		BinaryOperation_2_0 op;
 		try {
 			aFile.createNewFile();
@@ -149,7 +173,7 @@ public class Exercise_2_0 {
 			e.printStackTrace();
 		}
 	}
-	void formateAndDisplay(int columns) {
+	void formateAndDisplay(int columns) {//输入算式到显示屏
 		for (int i = 0; i < operationList.size(); i++) {
 			System.out.print((i+1)+"."+"  ");
 			System.out.print(operationList.get(i)+"\t");
